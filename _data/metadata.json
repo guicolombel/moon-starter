@@ -1,9 +1,9 @@
 {
-  "title": "Eleventy Netlify Boilerplate",
-  "url": "https://eleventy-netlify-boilerplate.netlify.com",
+  "title": "Moon Starter",
+  "url": "https://github.com/guicolombel/moon-starter",
   "author": {
-    "name": "Dan Urbanowicz",
-    "email": "dan.urbanowicz@gmail.com",
-    "github": "https://github.com/danurbanowicz"
+    "name": "Guillaume Colombel",
+    "email": "guillaume.colombel@gmail.com",
+    "github": "https://github.com/guicolombel"
   }
 }

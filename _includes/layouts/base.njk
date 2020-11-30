@@ -1,23 +1,10 @@
 <!doctype html>
-<html {% if section %} data-current="{{ section }}"{% endif %} lang="en">
-
+<html lang="en">
 	{% include "components/head.njk" %}
 
-	<body>
-
-		<header>
-			<em>
-				<a href="{{ '/' | url }}">{{ metadata.title }}</a>
-			</em>
-			{% include "components/nav.njk" %}
-		</header>
-
-		<main>
-			{{ layoutContent | safe }}
-		</main>
-
+	<body class="antialiased laptop:overflow-hidden overflow-x-hidden overflow-y-auto" data-barba="wrapper">
+		{% include "components/nav.njk" %}
+		{{ layoutContent | safe }}
 		{% include "components/footer.njk" %}
-
 	</body>
-
 </html>
