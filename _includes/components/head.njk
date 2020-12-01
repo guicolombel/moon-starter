@@ -22,7 +22,10 @@
   <meta name="msapplication-navbutton-color" content="#000" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <!-- CSS -->
-  <link rel="stylesheet" href="/_includes/assets/css/main.css"/>
+  {% set css %}
+    {% include "assets/css/main.css" %}
+  {% endset %}
+  <style>{{ css | cssmin | safe }}</style>
   <!-- Fonts -->
   {# <link as="font" crossorigin="anonymous" href="/static/fonts/Thermal-Regular.otf" rel="preload"> #}
   <!-- JS -->

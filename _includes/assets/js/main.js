@@ -5,9 +5,10 @@ import barba from '@barba/core';
 
 /* Modules */
 import isMobile from './utils/isMobile';
-
+import Splitting from './modules/Splitting';
 
 /* Transitions */
+let scroll;
 barba.init({
   debug: false,
   transitions: [
@@ -20,6 +21,8 @@ barba.init({
         setTimeout(() => {
           smooth(next.container);
         }, 100)
+        //Modules
+        Splitting();
       },
       beforeEnter({next}){
         scroll.destroy();
@@ -30,6 +33,7 @@ barba.init({
       enter(){},
       after(){
         //Module
+        Splitting();
       },
     }, {
       name: 'about',
@@ -55,7 +59,6 @@ barba.init({
   ]
 });
 
-
 /* Smooth scroll */
 const lerpValue = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1)? "0.3" : "0.08";
 function smooth(container) {
@@ -66,6 +69,16 @@ function smooth(container) {
     getSpeed: true,
     getDirection: true
   });
+  scroll.on('call', (value, way, obj) => {
+    if (value === 'lazyLoad'){
+      let src = obj.el.dataset.src;
+      if(obj.el.tagName == "IMG"){
+        obj.el.src = `${src}`;
+      } else {
+        obj.el.style.backgroundImage = `url(${src})`
+      }
+    }
+  })
 }
 
 /* VH */

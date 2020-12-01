@@ -1,6 +1,6 @@
 const path = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+//const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './_includes/assets/js/main.js',
@@ -19,10 +19,6 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
-      }, {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       }
     ]
   },
@@ -30,6 +26,5 @@ module.exports = {
     new CompressionPlugin({
       test: /\.(html|css|js)(\?.*)?$/i // only compressed html/css/js, skips compressing sourcemaps etc
     }),
-    new MiniCssExtractPlugin()
   ],
 };

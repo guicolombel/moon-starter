@@ -57,9 +57,11 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // Images process
+
+
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("_includes/assets/css/main.css");
   eleventyConfig.addPassthroughCopy("static/fonts");
   eleventyConfig.addPassthroughCopy("static/img");
   eleventyConfig.addPassthroughCopy("admin");

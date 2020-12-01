@@ -3,15 +3,27 @@ layout: layouts/base.njk
 section: home
 ---
 <main data-barba="container" data-barba-namespace="home">
-  <div class="o-scroll" data-scroll-container id="js-scroll">
-    <div class="h-screen bg-gray-100 flex justify-center items-center">
-      <img class="absolute z-10" src="https://2.collection-wakawaka.world/media/d/c/0/5.jpg" alt="" data-scroll data-scroll-speed="10">
-      <div class="overflow-hidden">
-        <h1 class="text-black text-xl z-0" data-scroll data-scroll-speed="-4">Moon starter</h1>
+  <div class="o-scroll grid" data-scroll-container id="js-scroll">
+    <section class="intro flex-center h-screen" data-scroll-section>
+      <div class="lazy">
+        <img src="/static/img/imgtest-01.jpg" width="670" height="893" alt="" data-scroll data-scroll-speed="10">
+        <div class="placeholder"></div>
       </div>
-    </div>
-    <div class="h-screen bg-gray-100 flex justify-center">
-      <p class="text-black text-lg uppercase z-0 w-1/4">The Moon is a gravity rounded astronomical body of planetary-mass, rocky silicate composition and without significant atmosphere, hydrosphere or magnetic field. It is orbiting the planet Earth of the inner Solar System, as Earth's only natural satellite. Its surface gravity is about a sixth of Earth's with 0.1654 g. At an average orbital distance to Earth 384,402 km (238,856 mi),[13][14] or 1.28 light-seconds (about thirty times the diameter of Earth) its gravitational influence produces the main part of any type of Earth's tides, possibly Earth's magnetic field[15] and the slight lengthening of Earth's day.</p>
-    </div>
+      <h1 data-scroll data-scroll-speed="-8">Moon starter</h1>
+    </section>
+    <section class="desc flex-center h-screen" data-scroll-section>
+      <p class="split" data-scroll data-scroll-repeat>The Moon is a gravity rounded astronomical body of planetary-mass, rocky silicate composition and without significant atmosphere, hydrosphere or magnetic field. It is orbiting the planet Earth of the inner Solar System, as Earth's only natural satellite. Its surface gravity is about a sixth of Earth's with 0.1654 g. At an average orbital distance to Earth 384,402 km (238,856 mi),[13][14] or 1.28 light-seconds (about thirty times the diameter of Earth) its gravitational influence produces the main part of any type of Earth's tides, possibly Earth's magnetic field[15] and the slight lengthening of Earth's day.</p>
+    </section>
+    <section class="flex-center" data-scroll-section>
+      <div class="grid-photos">
+        <img height="1247" data-scroll data-scroll-call="lazyLoad" data-src="/static/img/imgtest-02.jpg" alt="">
+        <img height="1247" data-scroll data-scroll-call="lazyLoad" data-src="/static/img/imgtest-03.jpg" alt="">
+        <img height="1247" data-scroll data-scroll-call="lazyLoad" data-src="/static/img/imgtest-04.jpg" alt="">
+        <img height="1247" data-scroll data-scroll-call="lazyLoad" data-src="/static/img/imgtest-05.jpg" alt="">
+      </div>
+    </section>
+    <section class="credits flex-center" data-scroll-section>
+      <p>©Photography by Romain Laprade</p>
+    </section>
   </div>
 </main>
