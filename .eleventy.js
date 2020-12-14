@@ -4,6 +4,7 @@ const UglifyJS = require("uglify-es");
 const htmlmin = require("html-minifier");
 const slugify = require("slugify");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+//const Image = require("@11ty/eleventy-img");
 //const pluginPWA = require("eleventy-plugin-pwa");
 
 module.exports = function(eleventyConfig) {
@@ -18,6 +19,40 @@ module.exports = function(eleventyConfig) {
   /* eleventyConfig.addPlugin(pluginPWA, {
     clientsClaim: true,
     skipWaiting: true
+  }); */
+
+   // Optimize images
+   /* eleventyConfig.addNunjucksAsyncShortcode("rwd", async function(src, alt) {
+    if(alt === undefined) {
+      // You bet we throw an error on missing alt (alt="" works okay)
+      throw new Error(`Missing \`alt\` on myResponsiveImage from: ${src}`);
+    }
+
+    let outputFormat0 = "jpeg";
+    let outputFormat1 = "webp";
+    let stats = await Image(src, {
+      widths: [100, 200, 400, 800, 1600, 2200, null],
+      formats: [outputFormat0, outputFormat1],
+      urlPath: "/static/img/",
+      outputDir: "./static/img/"
+    });
+    let lowestSrc = stats[outputFormat0][4];
+    let sizes = "100vw";
+
+    // Iterate over formats and widths
+    return `<picture>
+      ${Object.values(stats).map(imageFormat => {
+        return `<source type="image/${imageFormat[0].format}" data-scroll data-scroll-call="lazyLoad" data-lazy="${imageFormat.map(entry => entry.srcset).join(", ")}" sizes="${sizes}">`;
+      }).join("\n")}
+        <img
+        decoding="async"
+        data-scroll
+        data-scroll-call="lazyLoad"
+        data-lazy="${lowestSrc.url}"
+        width="${lowestSrc.width}"
+        height="${lowestSrc.height}"
+        alt="${alt}">
+      </picture>`;
   }); */
 
   // Date formatting (human readable)
@@ -56,9 +91,6 @@ module.exports = function(eleventyConfig) {
       remove: /[*+~.·,()'"`´%!?¿:@]/g
     });
   });
-
-  // Images process
-
 
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");

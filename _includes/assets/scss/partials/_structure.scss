@@ -41,7 +41,10 @@ body{
 .flex-center{display: flex; justify-content: center; align-items: center;}
 
 /* Lazy load */
-
+picture{
+  max-width: 100%;
+  height: auto;
+}
 
 /* Link effect */
 .link{

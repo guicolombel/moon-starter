@@ -6,9 +6,14 @@ import barba from '@barba/core';
 /* Modules */
 import isMobile from './utils/isMobile';
 import Splitting from './modules/Splitting';
+import WebWorkers from './modules/WebWorkers';
 
 /* Transitions */
 let scroll;
+
+barba.hooks.once((data) => { WebWorkers(); })
+barba.hooks.enter((data) => { WebWorkers(); });
+
 barba.init({
   debug: false,
   transitions: [
@@ -71,9 +76,9 @@ function smooth(container) {
   });
   scroll.on('call', (value, way, obj) => {
     if (value === 'lazyLoad'){
-      let src = obj.el.dataset.src;
-      if(obj.el.tagName == "IMG"){
-        obj.el.src = `${src}`;
+      let src = obj.el.dataset.lazy;
+      if(obj.el.tagName == "IMG" || obj.el.tagName == "SOURCE"){
+        obj.el.srcset = `${src}`;
       } else {
         obj.el.style.backgroundImage = `url(${src})`
       }
