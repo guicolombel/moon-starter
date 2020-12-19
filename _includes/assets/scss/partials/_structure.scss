@@ -8,12 +8,17 @@ body{
   }
 }
 
+/* Title */
+h1{}
+h2{}
+
 /* Splitting */
 .split{
   &.is-inview{
     & > div > div{
       transform: translate3d(0,0,0);
       transition: transform 1s cubic-bezier(.4,0,0,1);
+      will-change: transform;
     }
   }
   & > div{
