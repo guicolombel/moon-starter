@@ -4,9 +4,11 @@ import LocomotiveScroll from 'locomotive-scroll';
 import barba from '@barba/core';
 
 /* Modules */
-import isMobile from './utils/isMobile';
 import Splitting from './modules/Splitting';
 import WebWorkers from './modules/WebWorkers';
+
+/* Utils */
+import { isMobile } from './utils/isMobile';
 
 /* Transitions */
 let scroll;
