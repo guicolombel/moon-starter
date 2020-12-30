@@ -27,7 +27,6 @@ h2{}
     & > div{
       will-change: transform;
       transform: translate3d(0,100%,0);
-      transition: transform 1s cubic-bezier(.4,0,0,1);
     }
   }
   & > div:nth-child(2) > div{ transition-delay: .2s; }
